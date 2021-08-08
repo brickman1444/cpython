@@ -629,8 +629,6 @@ class HTMLDoc(Doc):
             result = result + '</td>'
         return '<table width="100%%" summary="list"><tr>%s</tr></table>' % result
 
-    def grey(self, text): return text
-
     def namelink(self, name, *dicts):
         """Make a link for an identifier, given name-to-URL mappings."""
         for dict in dicts:
@@ -654,7 +652,7 @@ class HTMLDoc(Doc):
         """Make a link for a module or package to display in an index."""
         name, path, ispackage, shadowed = modpkginfo
         if shadowed:
-            return self.grey(name)
+            return name
         if path:
             url = '%s.%s.html' % (path, name)
         else:
@@ -1015,7 +1013,7 @@ class HTMLDoc(Doc):
 
     def formatvalue(self, object):
         """Format an argument default value as text."""
-        return self.grey('=' + self.repr(object))
+        return '=' + self.repr(object)
 
     def docroutine(self, object, name=None, mod=None,
                    funcs={}, classes={}, methods={}, cl=None):
@@ -1071,8 +1069,7 @@ class HTMLDoc(Doc):
         if not argspec:
             argspec = '(...)'
 
-        decl = asyncqualifier + title + self.escape(argspec) + (note and
-               self.grey('%s' % note))
+        decl = asyncqualifier + title + self.escape(argspec) + note
 
         if skipdocs:
             return '<dl><dt>%s</dt></dl>\n' % decl
