@@ -570,7 +570,7 @@ class HTMLDoc(Doc):
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: %s</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+</head><body>
 %s
 </body></html>''' % (title, contents)
 
@@ -578,12 +578,12 @@ class HTMLDoc(Doc):
         """Format a page heading."""
         return '''
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="%s">
+<tr>
 <td valign=bottom><br>
 <br>%s</td
 ><td align=right valign=bottom
 >%s</td></tr></table>
-    ''' % (bgcol, title, extras)
+    ''' % (title, extras)
 
     def section(self, title, fgcol, bgcol, contents, width=6,
                 prelude='', marginalia=None, gap=''):
@@ -592,18 +592,18 @@ class HTMLDoc(Doc):
             marginalia = '<tt>' + '</tt>'
         result = '''<p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="%s">
+<tr>
 <td colspan=3 valign=bottom><br>
 %s</td></tr>
-    ''' % (bgcol, title)
+    ''' % (title)
         if prelude:
             result = result + '''
-<tr bgcolor="%s"><td rowspan=2>%s</td>
+<tr><td rowspan=2>%s</td>
 <td colspan=2>%s</td></tr>
-<tr><td>%s</td>''' % (bgcol, marginalia, prelude, gap)
+<tr><td>%s</td>''' % (marginalia, prelude, gap)
         else:
             result = result + '''
-<tr><td bgcolor="%s">%s</td><td>%s</td>''' % (bgcol, marginalia, gap)
+<tr><td>%s</td><td>%s</td>''' % (marginalia, gap)
 
         return result + '\n<td width="100%%">%s</td></tr></table>' % contents
 
@@ -2452,7 +2452,7 @@ def _url_handler(url, content_type="text/html"):
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Pydoc: %s</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-%s</head><body bgcolor="#f0f0f8">%s<div style="clear:both;padding-top:.5em;">%s</div>
+%s</head><body>%s<div style="clear:both;padding-top:.5em;">%s</div>
 </body></html>''' % (title, css_link, html_navbar(), contents)
 
 
