@@ -585,7 +585,7 @@ class HTMLDoc(Doc):
 >%s</td></tr></table>
     ''' % (title, extras)
 
-    def section(self, title, fgcol, bgcol, contents, width=6,
+    def section(self, title, contents, width=6,
                 prelude='', marginalia=None, gap=''):
         """Format a section with a heading."""
         if marginalia is None:
@@ -811,12 +811,12 @@ class HTMLDoc(Doc):
             modpkgs.sort()
             contents = self.multicolumn(modpkgs, self.modpkglink)
             result = result + self.bigsection(
-                'Package Contents', '#ffffff', '#aa55cc', contents)
+                'Package Contents', contents)
         elif modules:
             contents = self.multicolumn(
                 modules, lambda t: self.modulelink(t[1]))
             result = result + self.bigsection(
-                'Modules', '#ffffff', '#aa55cc', contents)
+                'Modules', contents)
 
         if classes:
             classlist = [value for (key, value) in classes]
@@ -825,27 +825,27 @@ class HTMLDoc(Doc):
             for key, value in classes:
                 contents.append(self.document(value, key, name, fdict, cdict))
             result = result + self.bigsection(
-                'Classes', '#ffffff', '#ee77aa', ' '.join(contents))
+                'Classes', ' '.join(contents))
         if funcs:
             contents = []
             for key, value in funcs:
                 contents.append(self.document(value, key, name, fdict, cdict))
             result = result + self.bigsection(
-                'Functions', '#ffffff', '#eeaa77', ' '.join(contents))
+                'Functions', ' '.join(contents))
         if data:
             contents = []
             for key, value in data:
                 contents.append(self.document(value, key))
             result = result + self.bigsection(
-                'Data', '#ffffff', '#55aa55', '<br>\n'.join(contents))
+                'Data', '<br>\n'.join(contents))
         if hasattr(object, '__author__'):
             contents = self.markup(str(object.__author__), self.preformat)
             result = result + self.bigsection(
-                'Author', '#ffffff', '#7799ee', contents)
+                'Author', contents)
         if hasattr(object, '__credits__'):
             contents = self.markup(str(object.__credits__), self.preformat)
             result = result + self.bigsection(
-                'Credits', '#ffffff', '#7799ee', contents)
+                'Credits', contents)
 
         return result
 
@@ -1009,7 +1009,7 @@ class HTMLDoc(Doc):
         doc = self.markup(doc, self.preformat, funcs, classes, mdict)
         doc = doc and '<tt>%s<br></tt>' % doc
 
-        return self.section(title, '#000000', '#ffc8d8', contents, 3, doc)
+        return self.section(title, contents, 3, doc)
 
     def formatvalue(self, object):
         """Format an argument default value as text."""
@@ -1113,7 +1113,7 @@ class HTMLDoc(Doc):
 
         modpkgs.sort()
         contents = self.multicolumn(modpkgs, self.modpkglink)
-        return self.bigsection(dir, '#ffffff', '#ee77aa', contents)
+        return self.bigsection(dir, contents)
 
 # -------------------------------------------- text documentation generator
 
@@ -2493,7 +2493,7 @@ def _url_handler(url, content_type="text/html"):
                  if name != '__main__']
         contents = html.multicolumn(names, bltinlink)
         contents = [heading, '<p>' + html.bigsection(
-            'Built-in Modules', '#ffffff', '#ee77aa', contents)]
+            'Built-in Modules', contents)]
 
         seen = {}
         for dir in sys.path:
@@ -2529,7 +2529,7 @@ def _url_handler(url, content_type="text/html"):
         for name, desc in search_result:
             results.append(bltinlink(name) + desc)
         contents = heading + html.bigsection(
-            'key = %s' % key, '#ffffff', '#ee77aa', '<br>'.join(results))
+            'key = %s' % key, '<br>'.join(results))
         return 'Search Results', contents
 
     def html_topics():
@@ -2543,7 +2543,7 @@ def _url_handler(url, content_type="text/html"):
 
         contents = html.multicolumn(names, bltinlink)
         contents = heading + html.bigsection(
-            'Topics', '#ffffff', '#ee77aa', contents)
+            'Topics', contents)
         return 'Topics', contents
 
     def html_keywords():
@@ -2556,7 +2556,7 @@ def _url_handler(url, content_type="text/html"):
 
         contents = html.multicolumn(names, bltinlink)
         contents = heading + html.bigsection(
-            'Keywords', '#ffffff', '#ee77aa', contents)
+            'Keywords', contents)
         return 'Keywords', contents
 
     def html_topicpage(topic):
@@ -2570,7 +2570,7 @@ def _url_handler(url, content_type="text/html"):
             title = 'TOPIC'
         heading = html.heading(title)
         contents = '<pre>%s</pre>' % html.markup(contents)
-        contents = html.bigsection(topic , '#ffffff','#ee77aa', contents)
+        contents = html.bigsection(topic, contents)
         if xrefs:
             xrefs = sorted(xrefs.split())
 
@@ -2578,8 +2578,7 @@ def _url_handler(url, content_type="text/html"):
                 return '<a href="topic?key=%s">%s</a>' % (name, name)
 
             xrefs = html.multicolumn(xrefs, bltinlink)
-            xrefs = html.section('Related help topics: ',
-                                 '#ffffff', '#ee77aa', xrefs)
+            xrefs = html.section('Related help topics: ', xrefs)
         return ('%s %s' % (title, topic),
                 ''.join((heading, contents, xrefs)))
 
@@ -2595,8 +2594,7 @@ def _url_handler(url, content_type="text/html"):
         heading = html.heading('Error')
         contents = '<br>'.join(html.escape(line) for line in
                                format_exception_only(type(exc), exc))
-        contents = heading + html.bigsection(url, '#ffffff', '#bb0000',
-                                             contents)
+        contents = heading + html.bigsection(url, contents)
         return "Error - %s" % url, contents
 
     def get_html_page(url):
