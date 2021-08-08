@@ -586,10 +586,7 @@ class HTMLDoc(Doc):
         """Format a section with a heading."""
         if marginalia is None:
             marginalia = ''
-        result = '''<p>
-<br>
-%s
-    ''' % (title)
+        result = '\n' + title
         if prelude:
             result = result + '''
 %s
@@ -872,7 +869,7 @@ class HTMLDoc(Doc):
             ok, attrs = _split_list(attrs, predicate)
             if ok:
                 hr.maybe()
-                push(msg)
+                push('<h4>' + msg + '</h4>\n')
                 for name, kind, homecls, value in ok:
                     try:
                         value = getattr(object, name)
@@ -890,7 +887,7 @@ class HTMLDoc(Doc):
             ok, attrs = _split_list(attrs, predicate)
             if ok:
                 hr.maybe()
-                push(msg)
+                push('<h4>' + msg + '</h4>\n')
                 for name, kind, homecls, value in ok:
                     push(self.docdata(value, name, mod))
             return attrs
@@ -899,7 +896,7 @@ class HTMLDoc(Doc):
             ok, attrs = _split_list(attrs, predicate)
             if ok:
                 hr.maybe()
-                push(msg)
+                push('<h4>' + msg + '</h4>\n')
                 for name, kind, homecls, value in ok:
                     base = self.docother(getattr(object, name), name, mod)
                     doc = getdoc(value)
@@ -948,7 +945,7 @@ class HTMLDoc(Doc):
             else:
                 tag = 'inherited from %s' % self.classlink(thisclass,
                                                            object.__module__)
-            tag += ':<br>\n'
+            tag += ':'
 
             sort_attributes(attrs, object)
 
@@ -981,7 +978,7 @@ class HTMLDoc(Doc):
             for base in bases:
                 parents.append(self.classlink(base, object.__module__))
             title = title + '(%s)' % ', '.join(parents)
-
+        title = '<h3>' + title + '</h3>'
         decl = ''
         try:
             signature = inspect.signature(object)

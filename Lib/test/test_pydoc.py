@@ -135,10 +135,8 @@ expected_html_pattern = """
 
 
 <h1><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)</h1><br><a href=".">index</a><br><a href="file:%s">%s</a>%s<p>This is a test module for test_pydoc</p>
-<p>
-<br>
+
 <h2>Classes</h2>
-\x20\x20\x20\x20
 
 <dl>
 <dt><a href="builtins.html#object">builtins.object</a>
@@ -150,30 +148,26 @@ expected_html_pattern = """
 </dt></dl>
 </dd>
 </dl>
- <p>
-<br>
-<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)
-\x20\x20\x20\x20
+ 
+<h3><a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)</h3>
 
 Hello and goodbye<br>
 
-Methods defined here:<br>
+<h4>Methods defined here:</h4>
 <dl><dt><a name="A-__init__">__init__</a>()</dt><dd>Wow, I have no function!</dd></dl>
 
 <hr>
-Data descriptors defined here:<br>
+<h4>Data descriptors defined here:</h4>
 <dl><dt>__dict__</dt>
 <dd>%s</dd>
 </dl>
 <dl><dt>__weakref__</dt>
 <dd>%s</dd>
 </dl>
- <p>
-<br>
-<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)
-\x20\x20\x20\x20
+ 
+<h3><a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)</h3>
 
-Data descriptors defined here:<br>
+<h4>Data descriptors defined here:</h4>
 <dl><dt>__dict__</dt>
 <dd>%s</dd>
 </dl>
@@ -181,17 +175,15 @@ Data descriptors defined here:<br>
 <dd>%s</dd>
 </dl>
 <hr>
-Data and other attributes defined here:<br>
+<h4>Data and other attributes defined here:</h4>
 <dl><dt>NO_MEANING = 'eggs'</dl>
 
 <dl><dt>__annotations__ = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
 
- <p>
-<br>
-<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)
-\x20\x20\x20\x20
+ 
+<h3><a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)</h3>
 
-Methods defined here:<br>
+<h4>Methods defined here:</h4>
 <dl><dt><a name="C-get_answer">get_answer</a>(self)</dt><dd>Return <a href="#C-say_no">say_no</a>()</dd></dl>
 
 <dl><dt><a name="C-is_it_true">is_it_true</a>(self)</dt><dd>Return self.<a href="#C-get_answer">get_answer</a>()</dd></dl>
@@ -199,37 +191,29 @@ Methods defined here:<br>
 <dl><dt><a name="C-say_no">say_no</a>(self)</dt></dl>
 
 <hr>
-Data descriptors defined here:<br>
+<h4>Data descriptors defined here:</h4>
 <dl><dt>__dict__</dt>
 <dd>dictionary for instance variables (if defined)</dd>
 </dl>
 <dl><dt>__weakref__</dt>
 <dd>list of weak references to the object (if defined)</dd>
 </dl>
-<p>
-<br>
+
 <h2>Functions</h2>
-\x20\x20\x20\x20
 
 <dl><dt><a name="-doc_func">doc_func</a>()</dt><dd>This function solves all of the world's problems:<br>
 hunger<br>
 lack of Python<br>
 war</dd></dl>
  <dl><dt><a name="-nodoc_func">nodoc_func</a>()</dt></dl>
-<p>
-<br>
+
 <h2>Data</h2>
-\x20\x20\x20\x20
 
-__xyz__ = 'X, Y and Z'<p>
-<br>
+__xyz__ = 'X, Y and Z'
 <h2>Author</h2>
-\x20\x20\x20\x20
 
-Benjamin Peterson<p>
-<br>
+Benjamin Peterson
 <h2>Credits</h2>
-\x20\x20\x20\x20
 
 Nobody
 """.strip() # ' <- emacs turd
@@ -810,10 +794,8 @@ class B(A)
         self.assertEqual(doc, '''\
 Python Library Documentation: class B in module %s
 
-<p>
-<br>
-<a name="B">class B</a>(A)
-\x20\x20\x20\x20
+
+<h3><a name="B">class B</a>(A)</h3>
 
 <dl><dt>Method resolution order:</dt>
 <dd>B</dd>
@@ -821,7 +803,7 @@ Python Library Documentation: class B in module %s
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
-Methods defined here:<br>
+<h4>Methods defined here:</h4>
 <dl><dt><a name="B-b_size">b_size</a> = <a href="#B-a_size">a_size</a>(self)</dt></dl>
 
 <dl><dt><a name="B-itemconfig">itemconfig</a> = <a href="#B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt></dl>
@@ -829,7 +811,7 @@ Methods defined here:<br>
 <dl><dt><a name="B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt><dd>Configure resources of an item TAGORID.</dd></dl>
 
 <hr>
-Methods inherited from A:<br>
+<h4>Methods inherited from A:</h4>
 <dl><dt><a name="B-a_size">a_size</a>(self)</dt><dd>Return size</dd></dl>
 
 <dl><dt><a name="B-lift">lift</a> = <a href="#B-tkraise">tkraise</a>(self, aboveThis=None)</dt></dl>
@@ -837,7 +819,7 @@ Methods inherited from A:<br>
 <dl><dt><a name="B-tkraise">tkraise</a>(self, aboveThis=None)</dt><dd>Raise this widget in the stacking order.</dd></dl>
 
 <hr>
-Data descriptors inherited from A:<br>
+<h4>Data descriptors inherited from A:</h4>
 <dl><dt>__dict__</dt>
 <dd>dictionary for instance variables (if defined)</dd>
 </dl>
