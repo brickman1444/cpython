@@ -756,9 +756,7 @@ class HTMLDoc(Doc):
             docloc = '<br><a href="%(docloc)s">Module Reference</a>' % locals()
         else:
             docloc = ''
-        result = self.heading(
-            head,
-            '<a href=".">index</a><br>' + filelink + docloc)
+        result = '<h1>%s</h1><br><a href=".">index</a><br>%s%s' % (head, filelink, docloc)
 
         modules = inspect.getmembers(object, inspect.ismodule)
 

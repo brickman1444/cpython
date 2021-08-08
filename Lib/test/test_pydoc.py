@@ -134,9 +134,7 @@ expected_text_data_docstrings = tuple('\n     |      ' + s if s else ''
 expected_html_pattern = """
 
 
-<br>
-<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)<a href=".">index</a><br><a href="file:%s">%s</a>%s
-    <p>This is a test module for test_pydoc</p>
+<h1><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)</h1><br><a href=".">index</a><br><a href="file:%s">%s</a>%s<p>This is a test module for test_pydoc</p>
 <p>
 <br>
 Classes
