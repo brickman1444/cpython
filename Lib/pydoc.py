@@ -609,7 +609,6 @@ class HTMLDoc(Doc):
 
     def bigsection(self, title, *args):
         """Format a section with a big heading."""
-        title = '<big><strong>%s</strong></big>' % title
         return self.section(title, *args)
 
     def preformat(self, text):
@@ -661,7 +660,7 @@ class HTMLDoc(Doc):
         else:
             url = '%s.html' % name
         if ispackage:
-            text = '<strong>%s</strong>(package)' % name
+            text = '%s(package)' % name
         else:
             text = name
         return '<a href="%s">%s</a>' % (url, text)
@@ -698,11 +697,10 @@ class HTMLDoc(Doc):
                 results.append('<a href="%s">%s</a>' % (url, escape(all)))
             elif selfdot:
                 # Create a link for methods like 'self.method(...)'
-                # and use <strong> for attributes like 'self.attr'
                 if text[end:end+1] == '(':
                     results.append('self.' + self.namelink(name, methods))
                 else:
-                    results.append('self.<strong>%s</strong>' % name)
+                    results.append('self.%s' % name)
             elif text[end:end+1] == '(':
                 results.append(self.namelink(name, methods, funcs, classes))
             else:
@@ -746,7 +744,7 @@ class HTMLDoc(Doc):
                 '<a href="%s.html"><font color="#ffffff">%s</font></a>' %
                 ('.'.join(parts[:i+1]), parts[i]))
         linkedname = '.'.join(links + parts[-1:])
-        head = '<big><big><strong>%s</strong></big></big>' % linkedname
+        head = linkedname
         try:
             path = inspect.getabsfile(object)
             url = urllib.parse.quote(path)
@@ -986,10 +984,10 @@ class HTMLDoc(Doc):
         contents = ''.join(contents)
 
         if name == realname:
-            title = '<a name="%s">class <strong>%s</strong></a>' % (
+            title = '<a name="%s">class %s</a>' % (
                 name, realname)
         else:
-            title = '<strong>%s</strong> = <a name="%s">class %s</a>' % (
+            title = '%s = <a name="%s">class %s</a>' % (
                 name, name, realname)
         if bases:
             parents = []
@@ -1046,7 +1044,7 @@ class HTMLDoc(Doc):
             asyncqualifier = ''
 
         if name == realname:
-            title = '<a name="%s"><strong>%s</strong></a>' % (anchor, realname)
+            title = '<a name="%s">%s</a>' % (anchor, realname)
         else:
             if cl and inspect.getattr_static(cl, realname, []) is object:
                 reallink = '<a href="#%s">%s</a>' % (
@@ -1054,7 +1052,7 @@ class HTMLDoc(Doc):
                 skipdocs = 1
             else:
                 reallink = realname
-            title = '<a name="%s"><strong>%s</strong></a> = %s' % (
+            title = '<a name="%s">%s</a> = %s' % (
                 anchor, name, reallink)
         argspec = None
         if inspect.isroutine(object):
@@ -1065,7 +1063,7 @@ class HTMLDoc(Doc):
             if signature:
                 argspec = str(signature)
                 if realname == '<lambda>':
-                    title = '<strong>%s</strong> <em>lambda</em> ' % name
+                    title = '%s <em>lambda</em> ' % name
                     # XXX lambda's won't usually have func_annotations['return']
                     # since the syntax doesn't support but it is possible.
                     # So removing parentheses isn't truly safe.
@@ -1090,7 +1088,7 @@ class HTMLDoc(Doc):
         push = results.append
 
         if name:
-            push('<dl><dt><strong>%s</strong></dt>\n' % name)
+            push('<dl><dt>%s</dt>\n' % name)
         doc = self.markup(getdoc(object), self.preformat)
         if doc:
             push('<dd><tt>%s</tt></dd>\n' % doc)
@@ -1102,7 +1100,7 @@ class HTMLDoc(Doc):
 
     def docother(self, object, name=None, mod=None, *ignored):
         """Produce HTML documentation for a data object."""
-        lhs = name and '<strong>%s</strong> = ' % name or ''
+        lhs = name and '%s = ' % name or ''
         return lhs + self.repr(object)
 
     def index(self, dir, shadowed=None):
@@ -2494,7 +2492,7 @@ def _url_handler(url, content_type="text/html"):
             return '<a href="%s.html">%s</a>' % (name, name)
 
         heading = html.heading(
-            '<big><big><strong>Index of Modules</strong></big></big>',
+            'Index of Modules',
             '#ffffff', '#7799ee')
         names = [name for name in sys.builtin_module_names
                  if name != '__main__']
@@ -2508,7 +2506,7 @@ def _url_handler(url, content_type="text/html"):
 
         contents.append(
             '<p align=right><font color="#909090" face="helvetica,'
-            'arial"><strong>pydoc</strong> by Ka-Ping Yee'
+            'arial">pydoc by Ka-Ping Yee'
             '&lt;ping@lfw.org&gt;</font>')
         return 'Index of Modules', ''.join(contents)
 
@@ -2534,7 +2532,7 @@ def _url_handler(url, content_type="text/html"):
 
         results = []
         heading = html.heading(
-            '<big><big><strong>Search Results</strong></big></big>',
+            'Search Results',
             '#ffffff', '#7799ee')
         for name, desc in search_result:
             results.append(bltinlink(name) + desc)
@@ -2549,7 +2547,7 @@ def _url_handler(url, content_type="text/html"):
             return '<a href="topic?key=%s">%s</a>' % (name, name)
 
         heading = html.heading(
-            '<big><big><strong>INDEX</strong></big></big>',
+            'INDEX',
             '#ffffff', '#7799ee')
         names = sorted(Helper.topics.keys())
 
@@ -2561,7 +2559,7 @@ def _url_handler(url, content_type="text/html"):
     def html_keywords():
         """Index of keywords."""
         heading = html.heading(
-            '<big><big><strong>INDEX</strong></big></big>',
+            'INDEX',
             '#ffffff', '#7799ee')
         names = sorted(Helper.keywords.keys())
 
@@ -2583,7 +2581,7 @@ def _url_handler(url, content_type="text/html"):
         else:
             title = 'TOPIC'
         heading = html.heading(
-            '<big><big><strong>%s</strong></big></big>' % title,
+            title,
             '#ffffff', '#7799ee')
         contents = '<pre>%s</pre>' % html.markup(contents)
         contents = html.bigsection(topic , '#ffffff','#ee77aa', contents)
@@ -2609,7 +2607,7 @@ def _url_handler(url, content_type="text/html"):
 
     def html_error(url, exc):
         heading = html.heading(
-            '<big><big><strong>Error</strong></big></big>',
+            'Error',
             '#ffffff', '#7799ee')
         contents = '<br>'.join(html.escape(line) for line in
                                format_exception_only(type(exc), exc))
