@@ -1524,7 +1524,7 @@ location listed above.
             line = (name and name + ' = ' or '') + repr
             chop = maxlen - len(line)
             if chop < 0: repr = repr[:chop] + '...'
-        line = (name + ' = ' or '') + repr
+        line = (name and name + ' = ' or '') + repr
         if not doc:
             doc = getdoc(object)
         if doc:

@@ -133,129 +133,126 @@ expected_text_data_docstrings = tuple('\n     |      ' + s if s else ''
 
 expected_html_pattern = """
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="test.html"><font color="#ffffff">test</font></a>.pydoc_mod</strong></big></big> (version 1.2.3.4)</font></td
+<tr>
+<td valign=bottom><br>
+<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)</td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:%s">%s</a>%s</font></td></tr></table>
-    <p><tt>This&nbsp;is&nbsp;a&nbsp;test&nbsp;module&nbsp;for&nbsp;test_pydoc</tt></p>
+><a href=".">index</a><br><a href="file:%s">%s</a>%s</td></tr></table>
+    <p><tt>This is a test module for test_pydoc</tt></p>
 <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ee77aa">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+Classes</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr><td><tt></tt></td><td></td>
 <td width="100%%"><dl>
-<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
-</font></dt><dd>
+<dt><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="test.pydoc_mod.html#A">A</a>
-</font></dt><dt><font face="helvetica, arial"><a href="test.pydoc_mod.html#B">B</a>
-</font></dt><dt><font face="helvetica, arial"><a href="test.pydoc_mod.html#C">C</a>
-</font></dt></dl>
+<dt><a href="test.pydoc_mod.html#A">A</a>
+</dt><dt><a href="test.pydoc_mod.html#B">B</a>
+</dt><dt><a href="test.pydoc_mod.html#C">C</a>
+</dt></dl>
 </dd>
 </dl>
  <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="A">class <strong>A</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
 \x20\x20\x20\x20
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Hello&nbsp;and&nbsp;goodbye<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
+<tr><td rowspan=2><tt></tt></td>
+<td colspan=2><tt>Hello and goodbye<br></tt></td></tr>
+<tr><td></td>
 <td width="100%%">Methods defined here:<br>
-<dl><dt><a name="A-__init__"><strong>__init__</strong></a>()</dt><dd><tt>Wow,&nbsp;I&nbsp;have&nbsp;no&nbsp;function!</tt></dd></dl>
+<dl><dt><a name="A-__init__">__init__</a>()</dt><dd><tt>Wow, I have no function!</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
+<dl><dt>__dict__</dt>
 <dd><tt>%s</tt></dd>
 </dl>
-<dl><dt><strong>__weakref__</strong></dt>
+<dl><dt>__weakref__</dt>
 <dd><tt>%s</tt></dd>
 </dl>
 </td></tr></table> <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="B">class <strong>B</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr><td><tt></tt></td><td></td>
 <td width="100%%">Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
+<dl><dt>__dict__</dt>
 <dd><tt>%s</tt></dd>
 </dl>
-<dl><dt><strong>__weakref__</strong></dt>
+<dl><dt>__weakref__</dt>
 <dd><tt>%s</tt></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>NO_MEANING</strong> = 'eggs'</dl>
+<dl><dt>NO_MEANING = 'eggs'</dl>
 
-<dl><dt><strong>__annotations__</strong> = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
+<dl><dt>__annotations__ = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
 
 </td></tr></table> <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="C">class <strong>C</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr><td><tt></tt></td><td></td>
 <td width="100%%">Methods defined here:<br>
-<dl><dt><a name="C-get_answer"><strong>get_answer</strong></a>(self)</dt><dd><tt>Return&nbsp;<a href="#C-say_no">say_no</a>()</tt></dd></dl>
+<dl><dt><a name="C-get_answer">get_answer</a>(self)</dt><dd><tt>Return <a href="#C-say_no">say_no</a>()</tt></dd></dl>
 
-<dl><dt><a name="C-is_it_true"><strong>is_it_true</strong></a>(self)</dt><dd><tt>Return&nbsp;self.<a href="#C-get_answer">get_answer</a>()</tt></dd></dl>
+<dl><dt><a name="C-is_it_true">is_it_true</a>(self)</dt><dd><tt>Return self.<a href="#C-get_answer">get_answer</a>()</tt></dd></dl>
 
-<dl><dt><a name="C-say_no"><strong>say_no</strong></a>(self)</dt></dl>
+<dl><dt><a name="C-say_no">say_no</a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<dl><dt>__dict__</dt>
+<dd><tt>dictionary for instance variables (if defined)</tt></dd>
 </dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dl><dt>__weakref__</dt>
+<dd><tt>list of weak references to the object (if defined)</tt></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+Functions</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%%"><dl><dt><a name="-doc_func"><strong>doc_func</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;solves&nbsp;all&nbsp;of&nbsp;the&nbsp;world's&nbsp;problems:<br>
+<tr><td><tt></tt></td><td></td>
+<td width="100%%"><dl><dt><a name="-doc_func">doc_func</a>()</dt><dd><tt>This function solves all of the world's problems:<br>
 hunger<br>
-lack&nbsp;of&nbsp;Python<br>
+lack of Python<br>
 war</tt></dd></dl>
- <dl><dt><a name="-nodoc_func"><strong>nodoc_func</strong></a>()</dt></dl>
+ <dl><dt><a name="-nodoc_func">nodoc_func</a>()</dt></dl>
 </td></tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+Data</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%%"><strong>__xyz__</strong> = 'X, Y and Z'</td></tr></table><p>
+<tr><td><tt></tt></td><td></td>
+<td width="100%%">__xyz__ = 'X, Y and Z'</td></tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#7799ee">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+Author</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%%">Benjamin&nbsp;Peterson</td></tr></table><p>
+<tr><td><tt></tt></td><td></td>
+<td width="100%%">Benjamin Peterson</td></tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#7799ee">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Credits</strong></big></font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+Credits</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr><td><tt></tt></td><td></td>
 <td width="100%%">Nobody</td></tr></table>
 """.strip() # ' <- emacs turd
-
-expected_html_data_docstrings = tuple(s.replace(' ', '&nbsp;')
-                                      for s in expected_data_docstrings)
 
 # output pattern for missing module
 missing_pattern = '''\
@@ -372,9 +369,6 @@ def get_pydoc_text(module):
 
     output = doc.docmodule(module)
 
-    # clean up the extra text formatting that pydoc performs
-    patt = re.compile('\b.')
-    output = patt.sub('', output)
     return output.strip(), loc
 
 def get_html_title(text):
@@ -429,7 +423,7 @@ class PydocDocTest(unittest.TestCase):
         mod_url = urllib.parse.quote(mod_file)
         expected_html = expected_html_pattern % (
                         (mod_url, mod_file, doc_loc) +
-                        expected_html_data_docstrings)
+                        expected_data_docstrings)
         self.assertEqual(result, expected_html)
 
     @unittest.skipIf(sys.flags.optimize >= 2,
@@ -793,8 +787,6 @@ class PydocDocTest(unittest.TestCase):
             b_size = A.a_size
 
         doc = pydoc.render_doc(B)
-        # clean up the extra text formatting that pydoc performs
-        doc = re.sub('\b.', '', doc)
         self.assertEqual(doc, '''\
 Python Library Documentation: class B in module %s
 
@@ -840,11 +832,11 @@ Python Library Documentation: class B in module %s
 
 <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="B">class <strong>B</strong></a>(A)</font></td></tr>
+<tr>
+<td colspan=3 valign=bottom><br>
+<a name="B">class B</a>(A)</td></tr>
 \x20\x20\x20\x20
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr><td><tt></tt></td><td></td>
 <td width="100%%"><dl><dt>Method resolution order:</dt>
 <dd>B</dd>
 <dd>A</dd>
@@ -852,27 +844,27 @@ Python Library Documentation: class B in module %s
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="B-b_size"><strong>b_size</strong></a> = <a href="#B-a_size">a_size</a>(self)</dt></dl>
+<dl><dt><a name="B-b_size">b_size</a> = <a href="#B-a_size">a_size</a>(self)</dt></dl>
 
-<dl><dt><a name="B-itemconfig"><strong>itemconfig</strong></a> = <a href="#B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt></dl>
+<dl><dt><a name="B-itemconfig">itemconfig</a> = <a href="#B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt></dl>
 
-<dl><dt><a name="B-itemconfigure"><strong>itemconfigure</strong></a>(self, tagOrId, cnf=None, **kw)</dt><dd><tt>Configure&nbsp;resources&nbsp;of&nbsp;an&nbsp;item&nbsp;TAGORID.</tt></dd></dl>
+<dl><dt><a name="B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt><dd><tt>Configure resources of an item TAGORID.</tt></dd></dl>
 
 <hr>
 Methods inherited from A:<br>
-<dl><dt><a name="B-a_size"><strong>a_size</strong></a>(self)</dt><dd><tt>Return&nbsp;size</tt></dd></dl>
+<dl><dt><a name="B-a_size">a_size</a>(self)</dt><dd><tt>Return size</tt></dd></dl>
 
-<dl><dt><a name="B-lift"><strong>lift</strong></a> = <a href="#B-tkraise">tkraise</a>(self, aboveThis=None)</dt></dl>
+<dl><dt><a name="B-lift">lift</a> = <a href="#B-tkraise">tkraise</a>(self, aboveThis=None)</dt></dl>
 
-<dl><dt><a name="B-tkraise"><strong>tkraise</strong></a>(self, aboveThis=None)</dt><dd><tt>Raise&nbsp;this&nbsp;widget&nbsp;in&nbsp;the&nbsp;stacking&nbsp;order.</tt></dd></dl>
+<dl><dt><a name="B-tkraise">tkraise</a>(self, aboveThis=None)</dt><dd><tt>Raise this widget in the stacking order.</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from A:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<dl><dt>__dict__</dt>
+<dd><tt>dictionary for instance variables (if defined)</tt></dd>
 </dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dl><dt>__weakref__</dt>
+<dd><tt>list of weak references to the object (if defined)</tt></dd>
 </dl>
 </td></tr></table>\
 ''' % __name__)
@@ -1055,10 +1047,10 @@ class TestDescriptions(unittest.TestCase):
         T = typing.TypeVar('T')
         class C(typing.Generic[T], typing.Mapping[int, str]): ...
         self.assertEqual(pydoc.render_doc(foo).splitlines()[-1],
-                         'f\x08fo\x08oo\x08o(data: List[Any], x: int)'
+                         'foo(data: List[Any], x: int)'
                          ' -> Iterator[Tuple[int, Any]]')
         self.assertEqual(pydoc.render_doc(C).splitlines()[2],
-                         'class C\x08C(collections.abc.Mapping, typing.Generic)')
+                         'class C(collections.abc.Mapping, typing.Generic)')
 
     def test_builtin(self):
         for name in ('str', 'str.translate', 'builtins.str',
@@ -1079,14 +1071,14 @@ class TestDescriptions(unittest.TestCase):
 
     @staticmethod
     def _get_summary_line(o):
-        text = pydoc.plain(pydoc.render_doc(o))
+        text = pydoc.render_doc(o)
         lines = text.split('\n')
         assert len(lines) >= 2
         return lines[2]
 
     @staticmethod
     def _get_summary_lines(o):
-        text = pydoc.plain(pydoc.render_doc(o))
+        text = pydoc.render_doc(o)
         lines = text.split('\n')
         return '\n'.join(lines[2:])
 
@@ -1153,7 +1145,7 @@ sm(x, y)
  |\x20\x20
  |  sm(x, y)
  |      A static method
-""", pydoc.plain(pydoc.render_doc(X)))
+""", pydoc.render_doc(X))
 
     @requires_docstrings
     def test_classmethod(self):
@@ -1174,7 +1166,7 @@ cm(x) method of builtins.type instance
  |\x20\x20
  |  cm(x) from builtins.type
  |      A class method
-""", pydoc.plain(pydoc.render_doc(X)))
+""", pydoc.render_doc(X))
 
     @requires_docstrings
     def test_getset_descriptor(self):
@@ -1240,7 +1232,7 @@ cm(x) method of builtins.type instance
         self.assertIn("""
  |  area
  |      Area of the rect
-""", pydoc.plain(pydoc.render_doc(Rect)))
+""", pydoc.render_doc(Rect))
 
     @requires_docstrings
     def test_custom_non_data_descriptor(self):
@@ -1296,24 +1288,24 @@ foo
         async def coro_function(ign) -> int:
             return 1
 
-        text = pydoc.plain(pydoc.plaintext.document(coro_function))
+        text = pydoc.plaintext.document(coro_function)
         self.assertIn('async coro_function', text)
 
         html = pydoc.HTMLDoc().document(coro_function)
         self.assertIn(
-            'async <a name="-coro_function"><strong>coro_function',
+            'async <a name="-coro_function">coro_function',
             html)
 
     def test_async_generator_annotation(self):
         async def an_async_generator():
             yield 1
 
-        text = pydoc.plain(pydoc.plaintext.document(an_async_generator))
+        text = pydoc.plaintext.document(an_async_generator)
         self.assertIn('async an_async_generator', text)
 
         html = pydoc.HTMLDoc().document(an_async_generator)
         self.assertIn(
-            'async <a name="-an_async_generator"><strong>an_async_generator',
+            'async <a name="-an_async_generator">an_async_generator',
             html)
 
     def test_html_for_https_links(self):
