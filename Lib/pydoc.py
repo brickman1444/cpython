@@ -574,7 +574,7 @@ class HTMLDoc(Doc):
 %s
 </body></html>''' % (title, contents)
 
-    def heading(self, title, fgcol, bgcol, extras=''):
+    def heading(self, title, extras=''):
         """Format a page heading."""
         return '''
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -765,7 +765,7 @@ class HTMLDoc(Doc):
         else:
             docloc = ''
         result = self.heading(
-            head, '#ffffff', '#7799ee',
+            head,
             '<a href=".">index</a><br>' + filelink + docloc)
 
         modules = inspect.getmembers(object, inspect.ismodule)
@@ -2488,9 +2488,7 @@ def _url_handler(url, content_type="text/html"):
         def bltinlink(name):
             return '<a href="%s.html">%s</a>' % (name, name)
 
-        heading = html.heading(
-            'Index of Modules',
-            '#ffffff', '#7799ee')
+        heading = html.heading('Index of Modules')
         names = [name for name in sys.builtin_module_names
                  if name != '__main__']
         contents = html.multicolumn(names, bltinlink)
@@ -2527,9 +2525,7 @@ def _url_handler(url, content_type="text/html"):
             return '<a href="%s.html">%s</a>' % (name, name)
 
         results = []
-        heading = html.heading(
-            'Search Results',
-            '#ffffff', '#7799ee')
+        heading = html.heading('Search Results')
         for name, desc in search_result:
             results.append(bltinlink(name) + desc)
         contents = heading + html.bigsection(
@@ -2542,9 +2538,7 @@ def _url_handler(url, content_type="text/html"):
         def bltinlink(name):
             return '<a href="topic?key=%s">%s</a>' % (name, name)
 
-        heading = html.heading(
-            'INDEX',
-            '#ffffff', '#7799ee')
+        heading = html.heading('INDEX')
         names = sorted(Helper.topics.keys())
 
         contents = html.multicolumn(names, bltinlink)
@@ -2554,9 +2548,7 @@ def _url_handler(url, content_type="text/html"):
 
     def html_keywords():
         """Index of keywords."""
-        heading = html.heading(
-            'INDEX',
-            '#ffffff', '#7799ee')
+        heading = html.heading('INDEX')
         names = sorted(Helper.keywords.keys())
 
         def bltinlink(name):
@@ -2576,9 +2568,7 @@ def _url_handler(url, content_type="text/html"):
             title = 'KEYWORD'
         else:
             title = 'TOPIC'
-        heading = html.heading(
-            title,
-            '#ffffff', '#7799ee')
+        heading = html.heading(title)
         contents = '<pre>%s</pre>' % html.markup(contents)
         contents = html.bigsection(topic , '#ffffff','#ee77aa', contents)
         if xrefs:
@@ -2602,9 +2592,7 @@ def _url_handler(url, content_type="text/html"):
         return title, content
 
     def html_error(url, exc):
-        heading = html.heading(
-            'Error',
-            '#ffffff', '#7799ee')
+        heading = html.heading('Error')
         contents = '<br>'.join(html.escape(line) for line in
                                format_exception_only(type(exc), exc))
         contents = heading + html.bigsection(url, '#ffffff', '#bb0000',
