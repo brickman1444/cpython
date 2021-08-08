@@ -577,10 +577,8 @@ class HTMLDoc(Doc):
     def heading(self, title, extras=''):
         """Format a page heading."""
         return '''
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr>
 <br>
-<br>%s%s</tr></table>
+<br>%s%s
     ''' % (title, extras)
 
     def section(self, title, contents, width=6,
@@ -589,21 +587,19 @@ class HTMLDoc(Doc):
         if marginalia is None:
             marginalia = ''
         result = '''<p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
 <br>
-%s</tr>
+%s
     ''' % (title)
         if prelude:
             result = result + '''
-<tr>%s
-%s</tr>
-<tr>%s''' % (marginalia, prelude, gap)
+%s
+%s
+%s''' % (marginalia, prelude, gap)
         else:
             result = result + '''
-<tr>%s%s''' % (marginalia, gap)
+%s%s''' % (marginalia, gap)
 
-        return result + '\n%s</tr></table>' % contents
+        return result + '\n%s' % contents
 
     def bigsection(self, title, *args):
         """Format a section with a big heading."""
@@ -623,7 +619,7 @@ class HTMLDoc(Doc):
             for i in range(rows*col, rows*col+rows):
                 if i < len(list):
                     result = result + format(list[i]) + '<br>\n'
-        return '<table width="100%%" summary="list"><tr>%s</tr></table>' % result
+        return result
 
     def namelink(self, name, *dicts):
         """Make a link for an identifier, given name-to-URL mappings."""

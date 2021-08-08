@@ -132,18 +132,16 @@ expected_text_data_docstrings = tuple('\n     |      ' + s if s else ''
                                       for s in expected_data_docstrings)
 
 expected_html_pattern = """
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr>
+
+
 <br>
-<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)<a href=".">index</a><br><a href="file:%s">%s</a>%s</tr></table>
+<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)<a href=".">index</a><br><a href="file:%s">%s</a>%s
     <p>This is a test module for test_pydoc</p>
 <p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
 <br>
-Classes</tr>
+Classes
 \x20\x20\x20\x20
-<tr>
+
 <dl>
 <dt><a href="builtins.html#object">builtins.object</a>
 </dt><dd>
@@ -155,14 +153,12 @@ Classes</tr>
 </dd>
 </dl>
  <p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
 <br>
-<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
+<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)
 \x20\x20\x20\x20
-<tr>
-Hello and goodbye<br></tr>
-<tr>
+
+Hello and goodbye<br>
+
 Methods defined here:<br>
 <dl><dt><a name="A-__init__">__init__</a>()</dt><dd>Wow, I have no function!</dd></dl>
 
@@ -174,13 +170,11 @@ Data descriptors defined here:<br>
 <dl><dt>__weakref__</dt>
 <dd>%s</dd>
 </dl>
-</tr></table> <p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+ <p>
 <br>
-<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
+<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)
 \x20\x20\x20\x20
-<tr>
+
 Data descriptors defined here:<br>
 <dl><dt>__dict__</dt>
 <dd>%s</dd>
@@ -194,13 +188,11 @@ Data and other attributes defined here:<br>
 
 <dl><dt>__annotations__ = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
 
-</tr></table> <p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+ <p>
 <br>
-<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
+<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)
 \x20\x20\x20\x20
-<tr>
+
 Methods defined here:<br>
 <dl><dt><a name="C-get_answer">get_answer</a>(self)</dt><dd>Return <a href="#C-say_no">say_no</a>()</dd></dl>
 
@@ -216,40 +208,32 @@ Data descriptors defined here:<br>
 <dl><dt>__weakref__</dt>
 <dd>list of weak references to the object (if defined)</dd>
 </dl>
-</tr></table></tr></table><p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+<p>
 <br>
-Functions</tr>
+Functions
 \x20\x20\x20\x20
-<tr>
+
 <dl><dt><a name="-doc_func">doc_func</a>()</dt><dd>This function solves all of the world's problems:<br>
 hunger<br>
 lack of Python<br>
 war</dd></dl>
  <dl><dt><a name="-nodoc_func">nodoc_func</a>()</dt></dl>
-</tr></table><p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+<p>
 <br>
-Data</tr>
+Data
 \x20\x20\x20\x20
-<tr>
-__xyz__ = 'X, Y and Z'</tr></table><p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+
+__xyz__ = 'X, Y and Z'<p>
 <br>
-Author</tr>
+Author
 \x20\x20\x20\x20
-<tr>
-Benjamin Peterson</tr></table><p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
+
+Benjamin Peterson<p>
 <br>
-Credits</tr>
+Credits
 \x20\x20\x20\x20
-<tr>
-Nobody</tr></table>
+
+Nobody
 """.strip() # ' <- emacs turd
 
 # output pattern for missing module
@@ -829,12 +813,10 @@ class B(A)
 Python Library Documentation: class B in module %s
 
 <p>
-<table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr>
 <br>
-<a name="B">class B</a>(A)</tr>
+<a name="B">class B</a>(A)
 \x20\x20\x20\x20
-<tr>
+
 <dl><dt>Method resolution order:</dt>
 <dd>B</dd>
 <dd>A</dd>
@@ -864,7 +846,6 @@ Data descriptors inherited from A:<br>
 <dl><dt>__weakref__</dt>
 <dd>list of weak references to the object (if defined)</dd>
 </dl>
-</tr></table>\
 ''' % __name__)
 
 
