@@ -850,9 +850,7 @@ class HTMLDoc(Doc):
             def __init__(self):
                 self.needone = 0
             def maybe(self):
-                if self.needone:
-                    push('<hr>\n')
-                self.needone = 1
+                pass
         hr = HorizontalRule()
 
         # List the mro, if non-trivial.

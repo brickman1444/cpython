@@ -156,7 +156,6 @@ Hello and goodbye<br>
 <h4>Methods defined here:</h4>
 <dl><dt><a name="A-__init__">__init__</a>()</dt><dd>Wow, I have no function!</dd></dl>
 
-<hr>
 <h4>Data descriptors defined here:</h4>
 <dl><dt>__dict__</dt>
 <dd>%s</dd>
@@ -174,7 +173,6 @@ Hello and goodbye<br>
 <dl><dt>__weakref__</dt>
 <dd>%s</dd>
 </dl>
-<hr>
 <h4>Data and other attributes defined here:</h4>
 <dl><dt>NO_MEANING = 'eggs'</dl>
 
@@ -190,7 +188,6 @@ Hello and goodbye<br>
 
 <dl><dt><a name="C-say_no">say_no</a>(self)</dt></dl>
 
-<hr>
 <h4>Data descriptors defined here:</h4>
 <dl><dt>__dict__</dt>
 <dd>dictionary for instance variables (if defined)</dd>
@@ -802,7 +799,6 @@ Python Library Documentation: class B in module %s
 <dd>A</dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
-<hr>
 <h4>Methods defined here:</h4>
 <dl><dt><a name="B-b_size">b_size</a> = <a href="#B-a_size">a_size</a>(self)</dt></dl>
 
@@ -810,7 +806,6 @@ Python Library Documentation: class B in module %s
 
 <dl><dt><a name="B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt><dd>Configure resources of an item TAGORID.</dd></dl>
 
-<hr>
 <h4>Methods inherited from A:</h4>
 <dl><dt><a name="B-a_size">a_size</a>(self)</dt><dd>Return size</dd></dl>
 
@@ -818,7 +813,6 @@ Python Library Documentation: class B in module %s
 
 <dl><dt><a name="B-tkraise">tkraise</a>(self, aboveThis=None)</dt><dd>Raise this widget in the stacking order.</dd></dl>
 
-<hr>
 <h4>Data descriptors inherited from A:</h4>
 <dl><dt>__dict__</dt>
 <dd>dictionary for instance variables (if defined)</dd>
