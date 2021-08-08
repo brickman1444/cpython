@@ -603,7 +603,7 @@ class HTMLDoc(Doc):
 
     def bigsection(self, title, *args):
         """Format a section with a big heading."""
-        return self.section(title, *args)
+        return self.section('<h2>' + title + '</h2>', *args)
 
     def preformat(self, text):
         """Format literal preformatted text."""

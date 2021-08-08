@@ -137,7 +137,7 @@ expected_html_pattern = """
 <h1><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)</h1><br><a href=".">index</a><br><a href="file:%s">%s</a>%s<p>This is a test module for test_pydoc</p>
 <p>
 <br>
-Classes
+<h2>Classes</h2>
 \x20\x20\x20\x20
 
 <dl>
@@ -208,7 +208,7 @@ Data descriptors defined here:<br>
 </dl>
 <p>
 <br>
-Functions
+<h2>Functions</h2>
 \x20\x20\x20\x20
 
 <dl><dt><a name="-doc_func">doc_func</a>()</dt><dd>This function solves all of the world's problems:<br>
@@ -218,17 +218,17 @@ war</dd></dl>
  <dl><dt><a name="-nodoc_func">nodoc_func</a>()</dt></dl>
 <p>
 <br>
-Data
+<h2>Data</h2>
 \x20\x20\x20\x20
 
 __xyz__ = 'X, Y and Z'<p>
 <br>
-Author
+<h2>Author</h2>
 \x20\x20\x20\x20
 
 Benjamin Peterson<p>
 <br>
-Credits
+<h2>Credits</h2>
 \x20\x20\x20\x20
 
 Nobody
