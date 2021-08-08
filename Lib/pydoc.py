@@ -1554,15 +1554,15 @@ def getpager():
     use_pager = os.environ.get('MANPAGER') or os.environ.get('PAGER')
     if use_pager:
         if sys.platform == 'win32': # pipes completely broken in Windows
-            return lambda text: tempfilepager(plain(text), use_pager)
+            return lambda text: tempfilepager(text, use_pager)
         elif os.environ.get('TERM') in ('dumb', 'emacs'):
-            return lambda text: pipepager(plain(text), use_pager)
+            return lambda text: pipepager(text, use_pager)
         else:
             return lambda text: pipepager(text, use_pager)
     if os.environ.get('TERM') in ('dumb', 'emacs'):
         return plainpager
     if sys.platform == 'win32':
-        return lambda text: tempfilepager(plain(text), 'more <')
+        return lambda text: tempfilepager(text, 'more <')
     if hasattr(os, 'system') and os.system('(less) 2>/dev/null') == 0:
         return lambda text: pipepager(text, 'less')
 
@@ -1576,10 +1576,6 @@ def getpager():
             return ttypager
     finally:
         os.unlink(filename)
-
-def plain(text):
-    """Remove boldface formatting from text."""
-    return re.sub('.\b', '', text)
 
 def pipepager(text, cmd):
     """Page through text by feeding it to another program."""
@@ -1623,7 +1619,7 @@ def _escape_stdout(text):
 
 def ttypager(text):
     """Page through text on a text terminal."""
-    lines = plain(_escape_stdout(text)).split('\n')
+    lines = _escape_stdout(text).split('\n')
     try:
         import tty
         fd = sys.stdin.fileno()
@@ -1667,7 +1663,7 @@ def ttypager(text):
 
 def plainpager(text):
     """Simply print unformatted text.  This is the ultimate fallback."""
-    sys.stdout.write(plain(_escape_stdout(text)))
+    sys.stdout.write(_escape_stdout(text))
 
 def describe(thing):
     """Produce a short description of the given thing."""
