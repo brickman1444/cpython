@@ -542,7 +542,7 @@ class HTMLRepr(Repr):
             # needed to make any special characters, so show a raw string.
             return 'r' + testrepr[0] + self.escape(test) + testrepr[0]
         return re.sub(r'((\\[\\abfnrtv\'"]|\\[0-9]..|\\x..|\\u....)+)',
-                      r'<font color="#c040c0">\1</font>',
+                      r'\1',
                       self.escape(testrepr))
 
     repr_str = repr_string
@@ -580,10 +580,10 @@ class HTMLDoc(Doc):
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="%s">
 <td valign=bottom><br>
-<font color="%s" face="helvetica, arial"><br>%s</font></td
+<br>%s</td
 ><td align=right valign=bottom
-><font color="%s" face="helvetica, arial">%s</font></td></tr></table>
-    ''' % (bgcol, fgcol, title, fgcol, extras)
+>%s</td></tr></table>
+    ''' % (bgcol, title, extras)
 
     def section(self, title, fgcol, bgcol, contents, width=6,
                 prelude='', marginalia=None, gap=''):
@@ -594,8 +594,8 @@ class HTMLDoc(Doc):
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="%s">
 <td colspan=3 valign=bottom><br>
-<font color="%s" face="helvetica, arial">%s</font></td></tr>
-    ''' % (bgcol, fgcol, title)
+%s</td></tr>
+    ''' % (bgcol, title)
         if prelude:
             result = result + '''
 <tr bgcolor="%s"><td rowspan=2>%s</td>
@@ -629,7 +629,7 @@ class HTMLDoc(Doc):
             result = result + '</td>'
         return '<table width="100%%" summary="list"><tr>%s</tr></table>' % result
 
-    def grey(self, text): return '<font color="#909090">%s</font>' % text
+    def grey(self, text): return text
 
     def namelink(self, name, *dicts):
         """Make a link for an identifier, given name-to-URL mappings."""
@@ -717,14 +717,14 @@ class HTMLDoc(Doc):
         for entry in tree:
             if type(entry) is type(()):
                 c, bases = entry
-                result = result + '<dt><font face="helvetica, arial">'
+                result = result + '<dt>'
                 result = result + self.classlink(c, modname)
                 if bases and bases != (parent,):
                     parents = []
                     for base in bases:
                         parents.append(self.classlink(base, modname))
                     result = result + '(' + ', '.join(parents) + ')'
-                result = result + '\n</font></dt>'
+                result = result + '\n</dt>'
             elif type(entry) is type([]):
                 result = result + '<dd>\n%s</dd>\n' % self.formattree(
                     entry, modname, c)
@@ -741,7 +741,7 @@ class HTMLDoc(Doc):
         links = []
         for i in range(len(parts)-1):
             links.append(
-                '<a href="%s.html"><font color="#ffffff">%s</font></a>' %
+                '<a href="%s.html">%s</a>' %
                 ('.'.join(parts[:i+1]), parts[i]))
         linkedname = '.'.join(links + parts[-1:])
         head = linkedname
@@ -1072,7 +1072,7 @@ class HTMLDoc(Doc):
             argspec = '(...)'
 
         decl = asyncqualifier + title + self.escape(argspec) + (note and
-               self.grey('<font face="helvetica, arial">%s</font>' % note))
+               self.grey('%s' % note))
 
         if skipdocs:
             return '<dl><dt>%s</dt></dl>\n' % decl
@@ -2505,9 +2505,8 @@ def _url_handler(url, content_type="text/html"):
             contents.append(html.index(dir, seen))
 
         contents.append(
-            '<p align=right><font color="#909090" face="helvetica,'
-            'arial">pydoc by Ka-Ping Yee'
-            '&lt;ping@lfw.org&gt;</font>')
+            '<p align=right>pydoc by Ka-Ping Yee'
+            '&lt;ping@lfw.org&gt;')
         return 'Index of Modules', ''.join(contents)
 
     def html_search(key):
