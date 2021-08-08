@@ -134,19 +134,17 @@ expected_text_data_docstrings = tuple('\n     |      ' + s if s else ''
 expected_html_pattern = """
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr>
-<td valign=bottom><br>
-<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)</td
-><td align=right valign=bottom
-><a href=".">index</a><br><a href="file:%s">%s</a>%s</td></tr></table>
-    <p><tt>This is a test module for test_pydoc</tt></p>
+<br>
+<br><a href="test.html">test</a>.pydoc_mod (version 1.2.3.4)<a href=".">index</a><br><a href="file:%s">%s</a>%s</tr></table>
+    <p>This is a test module for test_pydoc</p>
 <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-Classes</td></tr>
+<br>
+Classes</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%"><dl>
+<tr>
+<dl>
 <dt><a href="builtins.html#object">builtins.object</a>
 </dt><dd>
 <dl>
@@ -159,36 +157,36 @@ Classes</td></tr>
  <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<br>
+<a name="A">class A</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
 \x20\x20\x20\x20
-<tr><td rowspan=2><tt></tt></td>
-<td colspan=2><tt>Hello and goodbye<br></tt></td></tr>
-<tr><td></td>
-<td width="100%%">Methods defined here:<br>
-<dl><dt><a name="A-__init__">__init__</a>()</dt><dd><tt>Wow, I have no function!</tt></dd></dl>
+<tr>
+Hello and goodbye<br></tr>
+<tr>
+Methods defined here:<br>
+<dl><dt><a name="A-__init__">__init__</a>()</dt><dd>Wow, I have no function!</dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt>__dict__</dt>
-<dd><tt>%s</tt></dd>
+<dd>%s</dd>
 </dl>
 <dl><dt>__weakref__</dt>
-<dd><tt>%s</tt></dd>
+<dd>%s</dd>
 </dl>
-</td></tr></table> <p>
+</tr></table> <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<br>
+<a name="B">class B</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%">Data descriptors defined here:<br>
+<tr>
+Data descriptors defined here:<br>
 <dl><dt>__dict__</dt>
-<dd><tt>%s</tt></dd>
+<dd>%s</dd>
 </dl>
 <dl><dt>__weakref__</dt>
-<dd><tt>%s</tt></dd>
+<dd>%s</dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -196,62 +194,62 @@ Data and other attributes defined here:<br>
 
 <dl><dt>__annotations__ = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
 
-</td></tr></table> <p>
+</tr></table> <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<br>
+<a name="C">class C</a>(<a href="builtins.html#object">builtins.object</a>)</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%">Methods defined here:<br>
-<dl><dt><a name="C-get_answer">get_answer</a>(self)</dt><dd><tt>Return <a href="#C-say_no">say_no</a>()</tt></dd></dl>
+<tr>
+Methods defined here:<br>
+<dl><dt><a name="C-get_answer">get_answer</a>(self)</dt><dd>Return <a href="#C-say_no">say_no</a>()</dd></dl>
 
-<dl><dt><a name="C-is_it_true">is_it_true</a>(self)</dt><dd><tt>Return self.<a href="#C-get_answer">get_answer</a>()</tt></dd></dl>
+<dl><dt><a name="C-is_it_true">is_it_true</a>(self)</dt><dd>Return self.<a href="#C-get_answer">get_answer</a>()</dd></dl>
 
 <dl><dt><a name="C-say_no">say_no</a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt>__dict__</dt>
-<dd><tt>dictionary for instance variables (if defined)</tt></dd>
+<dd>dictionary for instance variables (if defined)</dd>
 </dl>
 <dl><dt>__weakref__</dt>
-<dd><tt>list of weak references to the object (if defined)</tt></dd>
+<dd>list of weak references to the object (if defined)</dd>
 </dl>
-</td></tr></table></td></tr></table><p>
+</tr></table></tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-Functions</td></tr>
+<br>
+Functions</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%"><dl><dt><a name="-doc_func">doc_func</a>()</dt><dd><tt>This function solves all of the world's problems:<br>
+<tr>
+<dl><dt><a name="-doc_func">doc_func</a>()</dt><dd>This function solves all of the world's problems:<br>
 hunger<br>
 lack of Python<br>
-war</tt></dd></dl>
+war</dd></dl>
  <dl><dt><a name="-nodoc_func">nodoc_func</a>()</dt></dl>
-</td></tr></table><p>
+</tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-Data</td></tr>
+<br>
+Data</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%">__xyz__ = 'X, Y and Z'</td></tr></table><p>
+<tr>
+__xyz__ = 'X, Y and Z'</tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-Author</td></tr>
+<br>
+Author</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%">Benjamin Peterson</td></tr></table><p>
+<tr>
+Benjamin Peterson</tr></table><p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-Credits</td></tr>
+<br>
+Credits</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%">Nobody</td></tr></table>
+<tr>
+Nobody</tr></table>
 """.strip() # ' <- emacs turd
 
 # output pattern for missing module
@@ -833,11 +831,11 @@ Python Library Documentation: class B in module %s
 <p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-<a name="B">class B</a>(A)</td></tr>
+<br>
+<a name="B">class B</a>(A)</tr>
 \x20\x20\x20\x20
-<tr><td><tt></tt></td><td></td>
-<td width="100%%"><dl><dt>Method resolution order:</dt>
+<tr>
+<dl><dt>Method resolution order:</dt>
 <dd>B</dd>
 <dd>A</dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
@@ -848,25 +846,25 @@ Methods defined here:<br>
 
 <dl><dt><a name="B-itemconfig">itemconfig</a> = <a href="#B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt></dl>
 
-<dl><dt><a name="B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt><dd><tt>Configure resources of an item TAGORID.</tt></dd></dl>
+<dl><dt><a name="B-itemconfigure">itemconfigure</a>(self, tagOrId, cnf=None, **kw)</dt><dd>Configure resources of an item TAGORID.</dd></dl>
 
 <hr>
 Methods inherited from A:<br>
-<dl><dt><a name="B-a_size">a_size</a>(self)</dt><dd><tt>Return size</tt></dd></dl>
+<dl><dt><a name="B-a_size">a_size</a>(self)</dt><dd>Return size</dd></dl>
 
 <dl><dt><a name="B-lift">lift</a> = <a href="#B-tkraise">tkraise</a>(self, aboveThis=None)</dt></dl>
 
-<dl><dt><a name="B-tkraise">tkraise</a>(self, aboveThis=None)</dt><dd><tt>Raise this widget in the stacking order.</tt></dd></dl>
+<dl><dt><a name="B-tkraise">tkraise</a>(self, aboveThis=None)</dt><dd>Raise this widget in the stacking order.</dd></dl>
 
 <hr>
 Data descriptors inherited from A:<br>
 <dl><dt>__dict__</dt>
-<dd><tt>dictionary for instance variables (if defined)</tt></dd>
+<dd>dictionary for instance variables (if defined)</dd>
 </dl>
 <dl><dt>__weakref__</dt>
-<dd><tt>list of weak references to the object (if defined)</tt></dd>
+<dd>list of weak references to the object (if defined)</dd>
 </dl>
-</td></tr></table>\
+</tr></table>\
 ''' % __name__)
 
 

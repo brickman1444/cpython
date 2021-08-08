@@ -579,33 +579,31 @@ class HTMLDoc(Doc):
         return '''
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr>
-<td valign=bottom><br>
-<br>%s</td
-><td align=right valign=bottom
->%s</td></tr></table>
+<br>
+<br>%s%s</tr></table>
     ''' % (title, extras)
 
     def section(self, title, contents, width=6,
                 prelude='', marginalia=None, gap=''):
         """Format a section with a heading."""
         if marginalia is None:
-            marginalia = '<tt>' + '</tt>'
+            marginalia = ''
         result = '''<p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr>
-<td colspan=3 valign=bottom><br>
-%s</td></tr>
+<br>
+%s</tr>
     ''' % (title)
         if prelude:
             result = result + '''
-<tr><td rowspan=2>%s</td>
-<td colspan=2>%s</td></tr>
-<tr><td>%s</td>''' % (marginalia, prelude, gap)
+<tr>%s
+%s</tr>
+<tr>%s''' % (marginalia, prelude, gap)
         else:
             result = result + '''
-<tr><td>%s</td><td>%s</td>''' % (marginalia, gap)
+<tr>%s%s''' % (marginalia, gap)
 
-        return result + '\n<td width="100%%">%s</td></tr></table>' % contents
+        return result + '\n%s</tr></table>' % contents
 
     def bigsection(self, title, *args):
         """Format a section with a big heading."""
@@ -622,11 +620,9 @@ class HTMLDoc(Doc):
         result = ''
         rows = (len(list)+cols-1)//cols
         for col in range(cols):
-            result = result + '<td width="%d%%" valign=top>' % (100//cols)
             for i in range(rows*col, rows*col+rows):
                 if i < len(list):
                     result = result + format(list[i]) + '<br>\n'
-            result = result + '</td>'
         return '<table width="100%%" summary="list"><tr>%s</tr></table>' % result
 
     def namelink(self, name, *dicts):
@@ -801,7 +797,6 @@ class HTMLDoc(Doc):
                 data.append((key, value))
 
         doc = self.markup(getdoc(object), self.preformat, fdict, cdict)
-        doc = doc and '<tt>%s</tt>' % doc
         result = result + '<p>%s</p>\n' % doc
 
         if hasattr(object, '__path__'):
@@ -919,7 +914,7 @@ class HTMLDoc(Doc):
                     else:
                         doc = self.markup(getdoc(value), self.preformat,
                                           funcs, classes, mdict)
-                        doc = '<dd><tt>%s</tt>' % doc
+                        doc = '<dd>%s' % doc
                         push('<dl><dt>%s%s</dl>\n' % (base, doc))
                     push('\n')
             return attrs
@@ -1007,7 +1002,7 @@ class HTMLDoc(Doc):
         if decl:
             doc = decl + (doc or '')
         doc = self.markup(doc, self.preformat, funcs, classes, mdict)
-        doc = doc and '<tt>%s<br></tt>' % doc
+        doc = doc and '%s<br>' % doc
 
         return self.section(title, contents, 3, doc)
 
@@ -1076,7 +1071,7 @@ class HTMLDoc(Doc):
         else:
             doc = self.markup(
                 getdoc(object), self.preformat, funcs, classes, methods)
-            doc = doc and '<dd><tt>%s</tt></dd>' % doc
+            doc = doc and '<dd>%s</dd>' % doc
             return '<dl><dt>%s</dt>%s</dl>\n' % (decl, doc)
 
     def docdata(self, object, name=None, mod=None, cl=None):
@@ -1088,7 +1083,7 @@ class HTMLDoc(Doc):
             push('<dl><dt>%s</dt>\n' % name)
         doc = self.markup(getdoc(object), self.preformat)
         if doc:
-            push('<dd><tt>%s</tt></dd>\n' % doc)
+            push('<dd>%s</dd>\n' % doc)
         push('</dl>\n')
 
         return ''.join(results)
