@@ -1157,10 +1157,6 @@ class TextDoc(Doc):
     _repr_instance = TextRepr()
     repr = _repr_instance.repr
 
-    def bold(self, text):
-        """Format a string in bold by overstriking."""
-        return ''.join(ch + '\b' + ch for ch in text)
-
     def indent(self, text, prefix='    '):
         """Indent text by prepending a given prefix to each line."""
         if not text: return ''
@@ -1171,7 +1167,7 @@ class TextDoc(Doc):
     def section(self, title, contents):
         """Format a section with a given heading."""
         clean_contents = self.indent(contents).rstrip()
-        return self.bold(title) + '\n' + clean_contents + '\n\n'
+        return title + '\n' + clean_contents + '\n\n'
 
     # ---------------------------------------------- type-specific routines
 
@@ -1302,9 +1298,9 @@ location listed above.
             return classname(c, m)
 
         if name == realname:
-            title = 'class ' + self.bold(realname)
+            title = 'class ' + realname
         else:
-            title = self.bold(name) + ' = class ' + realname
+            title = name + ' = class ' + realname
         if bases:
             parents = map(makename, bases)
             title = title + '(%s)' % ', '.join(parents)
@@ -1475,11 +1471,11 @@ location listed above.
             asyncqualifier = ''
 
         if name == realname:
-            title = self.bold(realname)
+            title = realname
         else:
             if cl and inspect.getattr_static(cl, realname, []) is object:
                 skipdocs = 1
-            title = self.bold(name) + ' = ' + realname
+            title = name + ' = ' + realname
         argspec = None
 
         if inspect.isroutine(object):
@@ -1490,7 +1486,7 @@ location listed above.
             if signature:
                 argspec = str(signature)
                 if realname == '<lambda>':
-                    title = self.bold(name) + ' lambda '
+                    title = name + ' lambda '
                     # XXX lambda's won't usually have func_annotations['return']
                     # since the syntax doesn't support but it is possible.
                     # So removing parentheses isn't truly safe.
@@ -1511,7 +1507,7 @@ location listed above.
         push = results.append
 
         if name:
-            push(self.bold(name))
+            push(name)
             push('\n')
         doc = getdoc(object) or ''
         if doc:
@@ -1528,7 +1524,7 @@ location listed above.
             line = (name and name + ' = ' or '') + repr
             chop = maxlen - len(line)
             if chop < 0: repr = repr[:chop] + '...'
-        line = (name and self.bold(name) + ' = ' or '') + repr
+        line = (name + ' = ' or '') + repr
         if not doc:
             doc = getdoc(object)
         if doc:
@@ -1537,8 +1533,7 @@ location listed above.
 
 class _PlainTextDoc(TextDoc):
     """Subclass of TextDoc which overrides string styling"""
-    def bold(self, text):
-        return text
+    pass
 
 # --------------------------------------------------------- user interfaces
 
