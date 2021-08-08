@@ -579,21 +579,21 @@ class HTMLDoc(Doc):
         return '''
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="%s">
-<td valign=bottom>&nbsp;<br>
-<font color="%s" face="helvetica, arial">&nbsp;<br>%s</font></td
+<td valign=bottom><br>
+<font color="%s" face="helvetica, arial"><br>%s</font></td
 ><td align=right valign=bottom
 ><font color="%s" face="helvetica, arial">%s</font></td></tr></table>
-    ''' % (bgcol, fgcol, title, fgcol, extras or '&nbsp;')
+    ''' % (bgcol, fgcol, title, fgcol, extras)
 
     def section(self, title, fgcol, bgcol, contents, width=6,
-                prelude='', marginalia=None, gap='&nbsp;'):
+                prelude='', marginalia=None, gap=''):
         """Format a section with a heading."""
         if marginalia is None:
-            marginalia = '<tt>' + '&nbsp;' * width + '</tt>'
+            marginalia = '<tt>' + '</tt>'
         result = '''<p>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="%s">
-<td colspan=3 valign=bottom>&nbsp;<br>
+<td colspan=3 valign=bottom><br>
 <font color="%s" face="helvetica, arial">%s</font></td></tr>
     ''' % (bgcol, fgcol, title)
         if prelude:
@@ -616,7 +616,7 @@ class HTMLDoc(Doc):
         """Format literal preformatted text."""
         text = self.escape(text.expandtabs())
         return replace(text, '\n\n', '\n \n', '\n\n', '\n \n',
-                             ' ', '&nbsp;', '\n', '<br>\n')
+                             '\n', '<br>\n')
 
     def multicolumn(self, list, format, cols=4):
         """Format a list of items into a multi-column list."""
@@ -661,7 +661,7 @@ class HTMLDoc(Doc):
         else:
             url = '%s.html' % name
         if ispackage:
-            text = '<strong>%s</strong>&nbsp;(package)' % name
+            text = '<strong>%s</strong>(package)' % name
         else:
             text = name
         return '<a href="%s">%s</a>' % (url, text)
@@ -1011,7 +1011,7 @@ class HTMLDoc(Doc):
         if decl:
             doc = decl + (doc or '')
         doc = self.markup(doc, self.preformat, funcs, classes, mdict)
-        doc = doc and '<tt>%s<br>&nbsp;</tt>' % doc
+        doc = doc and '<tt>%s<br></tt>' % doc
 
         return self.section(title, '#000000', '#ffc8d8', contents, 3, doc)
 
@@ -2478,7 +2478,7 @@ def _url_handler(url, content_type="text/html"):
                     <form action="get" style='display:inline;'>
                       <input type=text name=key size=15>
                       <input type=submit value="Get">
-                    </form>&nbsp;
+                    </form>
                     <form action="search" style='display:inline;'>
                       <input type=text name=key size=15>
                       <input type=submit value="Search">
