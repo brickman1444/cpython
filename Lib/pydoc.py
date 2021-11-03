@@ -65,6 +65,7 @@ import os
 import pkgutil
 import platform
 import re
+import shutil
 import sys
 import sysconfig
 import time
@@ -572,6 +573,7 @@ class HTMLDoc(Doc):
 <head>
 <meta charset="utf-8">
 <title>Python: %s</title>
+<link rel="stylesheet" type="text/css" href="_pydoc.css">
 </head><body>
 %s
 </body></html>''' % (title, contents)
@@ -1782,7 +1784,12 @@ def writedoc(thing, forceload=0):
     page = html.page(describe(object), html.document(object, name))
     with open(name + '.html', 'w', encoding='utf-8') as file:
         file.write(page)
+    path_here = os.path.dirname(os.path.realpath(__file__))
+    css_source = os.path.join(path_here, 'pydoc_data/_pydoc.css')
+    shutil.copy(css_source, '_pydoc.css')
+
     print('wrote', name + '.html')
+    print('wrote _pydoc.css')
 
 def writedocs(dir, pkgpath='', done=None):
     """Write out HTML documentation for all modules in a directory tree."""
