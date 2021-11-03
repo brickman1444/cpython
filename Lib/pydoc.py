@@ -581,10 +581,9 @@ class HTMLDoc(Doc):
     def heading(self, title, extras=''):
         """Format a page heading."""
         return '''
-<table class="heading">
-<tr class="heading-text decor">
-<td class="title">&nbsp;<br>%s</td>
-<td class="extra">%s</td></tr></table>
+<div class="heading heading-text decor">
+<h1 class="title">%s</h1>
+<div class="extra">%s</div></div>
     ''' % (title, extras or '&nbsp;')
 
     def section(self, title, cls, contents, width=6,

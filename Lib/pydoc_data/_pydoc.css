@@ -9,8 +9,9 @@ body {
     background-color: #f0f0f8;
 }
 
-table.heading tr {
+.heading {
     background-color: #7799ee;
+    overflow: hidden;
 }
 
 .decor {
@@ -62,13 +63,15 @@ table.heading tr {
     color: #c040c0;
 }
 
-table.heading tr td.title {
+.title {
     vertical-align: bottom;
+    float: left;
 }
 
-table.heading tr td.extra {
+.extra {
     vertical-align: bottom;
     text-align: right;
+    float: right;
 }
 
 .heading-text {
@@ -77,10 +80,6 @@ table.heading tr td.extra {
 
 .bigsection {
     font-size: larger;
-}
-
-.title {
-    font-size: x-large;
 }
 
 .code {
