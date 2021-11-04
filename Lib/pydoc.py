@@ -587,15 +587,17 @@ class HTMLDoc(Doc):
     ''' % (title, extras or '&nbsp;')
 
     def section(self, title, cls, contents, width=6,
-                prelude='', marginalia=None, gap='&nbsp;'):
+                prelude='', marginalia=None, gap='&nbsp;',
+                big=False):
         """Format a section with a heading."""
         if marginalia is None:
             marginalia = '<span class="code">' + '&nbsp;' * width + '</span>'
+        headersize = 'h2' if big else 'h3'
         result = '''<p>
 <table class="section">
 <tr class="decor %s-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br>%s</td></tr>
-    ''' % (cls, title)
+<td class="section-title" colspan=3>&nbsp;<br><%s>%s</%s></td></tr>
+    ''' % (cls, headersize, title, headersize)
         if prelude:
             result = result + '''
 <tr><td class="decor %s-decor" rowspan=2>%s</td>
@@ -607,10 +609,10 @@ class HTMLDoc(Doc):
 
         return result + '\n<td class="singlecolumn">%s</td></tr></table>' % contents
 
-    def bigsection(self, title, *args):
+    def bigsection(self, title, cls, content):
         """Format a section with a big heading."""
         title = '<strong class="bigsection">%s</strong>' % title
-        return self.section(title, *args)
+        return self.section(title, cls, content, big=True)
 
     def preformat(self, text):
         """Format literal preformatted text."""
