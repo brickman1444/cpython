@@ -101,9 +101,9 @@ td.section-title {
     vertical-align: bottom;
 }
 
-td.multicolumn {
-    width: 25%;
-    vertical-align: bottom;
+.multicolumn {
+    column-count: 4;
+    list-style-type:none;
 }
 
 td.singlecolumn {

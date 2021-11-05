@@ -623,14 +623,9 @@ class HTMLDoc(Doc):
     def multicolumn(self, list, format):
         """Format a list of items into a multi-column list."""
         result = ''
-        rows = (len(list) + 3) // 4
-        for col in range(4):
-            result = result + '<td class="multicolumn">'
-            for i in range(rows*col, rows*col+rows):
-                if i < len(list):
-                    result = result + format(list[i]) + '<br>\n'
-            result = result + '</td>'
-        return '<table><tr>%s</tr></table>' % result
+        for element in list:
+            result = result + '<li>' + format(element) + '</li>\n'
+        return '<ul class="multicolumn">\n%s</ul>\n' % result
 
     def grey(self, text): return '<span class="grey">%s</span>' % text
 
