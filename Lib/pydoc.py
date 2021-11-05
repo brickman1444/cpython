@@ -590,28 +590,25 @@ class HTMLDoc(Doc):
                 prelude='', marginalia=None, gap='&nbsp;',
                 big=False):
         """Format a section with a heading."""
-        if marginalia is None:
-            marginalia = '<span class="code">' + '&nbsp;' * width + '</span>'
         headersize = 'h2' if big else 'h3'
         result = '''<p>
-<table class="section">
-<tr class="decor %s-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><%s>%s</%s></td></tr>
+<div class="section">
+<div class="decor %s-decor heading-text">
+<div class="section-title"><%s>%s</%s></div></div>
     ''' % (cls, headersize, title, headersize)
         if prelude:
             result = result + '''
-<tr><td class="decor %s-decor" rowspan=2>%s</td>
-<td class="decor %s-decor" colspan=2>%s</td></tr>
-<tr><td>%s</td>''' % (cls, marginalia, cls, prelude, gap)
+<div><div class="decor %s-decor">%s</div>
+<div class="decor %s-decor">%s</div></div>
+<div><div>%s</div>''' % (cls, marginalia, cls, prelude, gap)
         else:
             result = result + '''
-<tr><td class="decor %s-decor">%s</td><td>%s</td>''' % (cls, marginalia, gap)
+<div><div class="decor %s-decor"></div>''' % (cls)
 
-        return result + '\n<td class="singlecolumn">%s</td></tr></table>' % contents
+        return result + '\n<div class="singlecolumn">%s</div></div></div>' % contents
 
     def bigsection(self, title, cls, content):
         """Format a section with a big heading."""
-        title = '<strong class="bigsection">%s</strong>' % title
         return self.section(title, cls, content, big=True)
 
     def preformat(self, text):
