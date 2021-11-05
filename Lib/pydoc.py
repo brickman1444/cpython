@@ -614,7 +614,7 @@ class HTMLDoc(Doc):
         """Format literal preformatted text."""
         text = self.escape(text.expandtabs())
         return replace(text, '\n\n', '\n \n', '\n\n', '\n \n',
-                             ' ', '&nbsp;', '\n', '<br>\n')
+                             '\n', '<br>\n')
 
     def multicolumn(self, list, format):
         """Format a list of items into a multi-column list."""
