@@ -598,12 +598,11 @@ class HTMLDoc(Doc):
     ''' % (cls, headersize, title, headersize)
         if prelude:
             result = result + '''
-<div><div class="decor %s-decor">%s</div>
+<div>
 <div class="decor %s-decor">%s</div></div>
-<div><div>%s</div>''' % (cls, marginalia, cls, prelude, gap)
+<div>''' % (cls, prelude)
         else:
-            result = result + '''
-<div><div class="decor %s-decor"></div>''' % (cls)
+            result = result + '''<div>'''
 
         return result + '\n<div class="singlecolumn">%s</div></div></div>' % contents
 
